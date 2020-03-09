@@ -1,0 +1,64 @@
+.die {
+    width: 75px;
+    height: 75px;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+    background-clip: content-box;
+    background-color: whitesmoke;
+    border: solid 3px black;
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: xx-large;
+
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: space-around;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+    background-color: black;
+    padding: 1em;
+}
+
+#start-btn {
+    background-color: greenyellow;
+    border: solid 2px black;
+    border-radius: 0.3em;
+    font-size: 1.5em;
+    color: black;
+}
+
+#roll-btn {
+    background-color: pink;
+    border: solid 2px black;
+    border-radius: 0.3em;
+    font-size: 1.5em;
+    color: black;
+}
+
+#some-btn {
+    background-color:lightskyblue;
+    border: solid 2px black;
+    color: black;
+    border-radius: 0.3em;
+    font-size: 1.5em;
+}
+
+body {
+    background-image: url(marblebg.jpg);
+    background-size: cover;
+}
