@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 let generateBtn = document.getElementById('start-btn');
 let someBtn = document.getElementById('some-btn');
 let rollBtn = document.getElementById('roll-btn');

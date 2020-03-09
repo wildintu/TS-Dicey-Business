@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var generateBtn = document.getElementById('start-btn');
 var someBtn = document.getElementById('some-btn');
 var rollBtn = document.getElementById('roll-btn');
