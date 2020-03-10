@@ -1,45 +1,47 @@
 import $ from 'jquery';
 
-let generateBtn = document.getElementById('start-btn');
-let someBtn = document.getElementById('some-btn');
-let rollBtn = document.getElementById('roll-btn');
+// let generateBtn = document.getElementById('start-btn');
+// let someBtn = document.getElementById('some-btn');
+// let rollBtn = document.getElementById('roll-btn');
 let array:any[] = [];
 let counter = 0;
 
+
 class Die {
+    public div: JQuery;
     constructor() {
-        this.div = document.createElement('div');
-        this.value = document.createTextNode(counter);
+        this.div = $("<div></div>");
+        $(this.div).text(counter);
         this.render();
-        array.push(this);
+        array.push(this.div);
         this.roll();
         this.addEventsYo();
         this.rollAll();
     }
 
     addEventsYo(){
-        this.div.addEventListener('click', () => {
+        $(this.div).on('click', () => {
             this.roll();
-            this.div.style.backgroundColor = this.randomColor();
+            $(this.div).css('background-color', this.randomColor());
         });
-        this.div.addEventListener('dblclick', () => this.destroyDie());
+        $(this.div).on('dblclick', () => this.destroyDie());
     }
 
     roll() {
         //determines value of the dice
         let randomVal = Math.floor(Math.random() * 6) + 1;
-        this.div.innerText = randomVal;
-        this.divText = randomVal;
+        $(this.div).text(randomVal);
+        // this.divText = randomVal;
     }
 
     rollAll() {
-    rollBtn.addEventListener('click', () => this.roll());
+    $('#roll-btn').on('click', () => this.roll());
     }
 
     render() {
-        this.div.className = 'die'
-        this.div.id = counter;
-        container.appendChild(this.div);
+        $(this.div).addClass('die');
+        $(this.div).attr('id',counter);
+        $('#container').append(this.div);
     }
 
     randomColor() {
@@ -50,24 +52,26 @@ class Die {
     }
 
     destroyDie() {
-        let e = this.div.parentNode;
-        e.removeChild(this.div);
-        let dieclass = array.indexOf(this);
+        // let e = $(this.div).parent();
+        // console.log(e);
+        $(this.div).remove();
+        let dieclass = array.indexOf(this.div);
         array.splice(dieclass, 1);
       }
       
     }
     
-    generateBtn.addEventListener('click', function () {
+    $('#start-btn').on('click', function () {
         new Die();
         counter++;
     })
     
-    someBtn.addEventListener('click', function() {
+    $('#some-btn').on('click', function() {
         let integers:any [] = [];
         array.forEach(function(e) {
-            integers.push(e.divText);   
+            integers.push(parseInt($(e).text(),10));   
         })
+        // console.log(integers)
         let final = integers.reduce(sumDice);
         alert(`Your sum is ${final}!`);
     })
